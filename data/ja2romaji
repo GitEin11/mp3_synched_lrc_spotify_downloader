@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script reads the contents of the zzlyrics001.lrc file and pipes it to the 'cutlet' command
+# The 'cutlet' command converts the Japanese characters to romaji
+
+cat ./zzlyrics001.lrc | cutlet

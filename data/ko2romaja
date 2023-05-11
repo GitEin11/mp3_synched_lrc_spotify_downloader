@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Using kroman to convert the Korean lyrics into romaja and save it to zzlyrics001.lrc
+kroman < zzlyrics000.lrc > zzlyrics001.lrc
+
+# some cleanup (add list if necessary)
+# Using sed to remove any spaces after the closing bracket of each lyric line in zzlyrics001.lrc
+sed -i 's/] /]/g' zzlyrics001.lrc

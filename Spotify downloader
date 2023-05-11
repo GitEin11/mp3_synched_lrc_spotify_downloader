@@ -1,0 +1,211 @@
+#!/bin/bash
+cd $PWD
+
+clientID="YOUR CLIENT ID HERE"
+clientST="YOUR SECRET TOKEN HERE"
+
+# Set the terminal title to show that mp3 is being downloaded from Spotify
+echo -ne '\033]0;downloading mp3 from Spotify\007'
+
+rm ./*.mp3
+clear
+
+# Run the script "spotify-cli" with the output saved to a file "stat"
+script -c ./data/spotify-cli --force ./data/stat
+
+
+result=""
+# Loop until the result is found
+# this is to ensure that a song is currently playing/paused (*if paused for too long spotify will kill the process)
+while [ -z "$result" ]; do
+    # Search for the string "URL" in the file "stat"
+    result=$(grep -o "URL" ./data/stat)
+
+    # If the result (URL) is not found, wait for 1 second and try again
+    if [ -z "$result" ]; then
+        sleep 1
+        script -c ./data/spotify-cli --force ./data/stat
+    fi
+done
+wait
+
+
+# Extract the url of the currently playing song from the "stat" file and save it to a file "url"
+url=`awk -F"URL" '{print (NF>1)? $NF : ""}' ./data/stat`
+echo $url > ./data/url
+sed -i 's/\r//g' ./data/url
+url=`cat ./data/url`
+
+
+# Define the forbidden characters for filename/filepath (add list if neccesary)
+forbidden_chars="<>:\"/\\|?*"
+
+
+# Extract the title of the currently playing song from the "stat" file and save it to a file "title"
+title=`awk -F"Playing:" '{print (NF>1)? $NF : ""}' ./data/stat`
+if [ -z "$title" ]
+then
+    title=`awk -F"Paused:" '{print (NF>1)? $NF : ""}' ./data/stat`
+else
+    title=$title
+fi
+# Replace the forbidden characters with a space, to prevent breaking some script
+title=$(echo "$title" | sed "s/[$forbidden_chars]/ /g")
+echo $title > ./data/title
+
+# removes new line and carriage return, *sometimes hidden in text viewer, breaks some script if not remove
+tr -d '\n\r' < ./data/title > temp_file && mv temp_file ./data/title
+
+title=`cat ./data/title`
+
+
+# Extract the artist of the currently playing song from the "stat" file and save it to a file "artist"
+artist=`awk -F"Artist" '{print (NF>1)? $NF : ""}' ./data/stat`
+artist=$(echo "$artist" | sed "s/[$forbidden_chars]/ /g")
+echo $artist > ./data/artist
+tr -d '\n\r' < ./data/artist > temp_file && mv temp_file ./data/artist
+artist=`cat ./data/artist`
+
+
+# Extract the album name of the currently playing song from the "stat" file and save it to a file "album"
+album=`awk -F"Album" '{print (NF>1)? $NF : ""}' ./data/stat`
+album=$(echo "$album" | sed "s/[$forbidden_chars]/ /g")
+echo $album > ./data/album
+tr -d '\n\r' < ./data/album > temp_file && mv temp_file ./data/album
+album=`cat ./data/album`
+
+
+FILE="$PWD"/Music/"$artist"/"$album"/"${title}.mp3"
+
+# Check if the file already exists, and if not, download mp3 using the "spotdl" command
+if [ -f "$FILE" ]; then
+    :
+else 
+   spotdl --client-id $clientID --client-secret $clientST $url
+fi
+
+# Create directories for the artist and album if they don't already exist,
+# and move the downloaded mp3 file to the correct location
+
+mkdir -p ./Music/"$artist"/"$album"
+mv ./*.mp3 ./Music/"$artist"/"$album"/"${title}.mp3"
+
+
+# downloading of synched lyrics
+# rearrange this acording to your priority
+# not all songs have available synched lyrics
+# if your wondering why lyrics translated and original that have the same content but with different file size, one is encoded with UTF-16 and the other is UTF-8
+
+FILE2="$PWD"/Music/"$artist"/"$album"/"${title}.lrc"
+
+echo -ne '\033]0;Spotify downloader\007'
+
+##############################################################################################
+# Spotify
+
+# Check if the lyrics file already exists, and if not, run several scripts to generate and clean up the lyrics
+if [ -f "$FILE2" ]; then
+    :
+else 
+    ./data/LyrSpotify
+    ./data/translate
+    ./data/cleanup
+    # Set the title of the terminal window, to check which service is used to successfully download the lyrics if file does not existed before
+    if [ -f "$FILE2" ]; then echo -ne '\033]0;downloaded lyrics is from Spotify\007'; fi
+fi
+
+##############################################################################################
+# Musixmatch
+
+if [ -f "$FILE2" ]; then
+    :
+else
+    ./data/LyrMusixmatch
+    ./data/translate
+    ./data/cleanup
+    # Set the title of the terminal window, to check which service is used to successfully download the lyrics if file does not existed before
+    if [ -f "$FILE2" ]; then echo -ne '\033]0;downloaded lyrics is from Musixmatch\007'; fi
+fi
+
+##############################################################################################
+# Netease
+
+if [ -f "$FILE2" ]; then
+    :
+else
+    ./data/LyrNetease
+    ./data/translate
+    ./data/cleanup
+    # Set the title of the terminal window, to check which service is used to successfully download the lyrics if file does not existed before
+    if [ -f "$FILE2" ]; then echo -ne '\033]0;downloaded lyrics is from Netease\007'; fi
+fi
+
+##############################################################################################
+
+
+# after process
+# Check if the mp3 file exists, and if so, cleanup and prompt the user to show the file in their default file manager
+if [ -f "$FILE" ]; then
+rm ./data/album
+rm ./data/artist
+rm ./data/query
+rm ./data/stat
+rm ./data/time
+rm ./data/title
+rm ./data/url
+clear
+
+
+menu="Show mp3 file? - $title"
+options=("Yes" "No")
+cursor=0
+# Loop until user selects an option
+while true; do
+  clear #clear to remove previous selection
+  echo "$menu" # Print the menu
+  for i in "${!options[@]}"; do
+    if [[ $i -eq $cursor ]]; then
+      printf "\033[7m%s\033[0m\n" "${options[$i]}"
+    else
+      printf "%s\n" "${options[$i]}"
+    fi
+  done
+
+  # Read user input
+  read -rsn1 input
+  case $input in
+    A) # Up arrow
+      (( cursor-- ))
+      if (( cursor < 0 )); then
+        cursor=$(( ${#options[@]} - 1 ))
+      fi
+      ;;
+    B) # Down arrow
+      (( cursor++ ))
+      if (( cursor >= ${#options[@]} )); then
+        cursor=0
+      fi
+      ;;
+    "") # Enter key
+      case ${options[$cursor]} in
+        "Yes")
+          
+          clear
+          # calls the file manager and shows the mp3 file
+          gdbus call --session --dest org.freedesktop.FileManager1 --object-path /org/freedesktop/FileManager1 --method org.freedesktop.FileManager1.ShowItems "['file://$FILE']" ""        
+          break
+          
+          ;;
+        "No")
+          clear
+          exit 0
+          ;;
+      esac
+      ;;
+  esac
+done
+
+
+else
+:
+fi

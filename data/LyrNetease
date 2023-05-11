@@ -1,0 +1,30 @@
+#!/bin/sh
+
+clear
+
+# Download lyrics pipe thru "script" command and pyN
+script -c ./data/pyN --force zzlyrics000.lrc
+
+
+# cleanups
+# removes unnessary lines generated
+line=`grep -n "Trying to download" zzlyrics000.lrc | head -1 | cut -d: -f1`
+line=$((line +3))
+sed -i "1,$line {d}"  zzlyrics000.lrc # delete the lines from the start of the file to the "line" number above
+sed -i '$d' zzlyrics000.lrc # delete the last line of the file
+
+# to ensure synched type of lyrics is the one that is downloaded, check for timestanp
+# line 7 is just arbritary number most probably timestamp for lyrics can be found here
+# in some case song length is included in the lyric file which have a timestamp value, this is the reason a specific line(7th) is being search to prevent downloadin unsynced lyrics
+sed -n '7,7p' ./zzlyrics000.lrc > ./data/time
+time="[0-5][0-9]:[0-5][0-9]\.[0-9]"
+
+# check if timestamp is present delete file if not found
+if grep -q "$time" ./data/time; then
+:
+else 
+    rm ./zzlyrics000.lrc 
+fi
+
+# check if certain error messages are present in the lyrics file, if so, delete the file
+if grep -q "No translation found\|KeyError\|KeyboardInterrupt" ./zzlyrics000.lrc; then rm ./zzlyrics000.lrc; fi

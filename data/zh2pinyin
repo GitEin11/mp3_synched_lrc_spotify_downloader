@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This script reads lines from the zzlyrics001.lrc file and passes each line to the 'pinyin-tool' command
+# if not done line by line, it outputs lyrics in one block of line
+# The 'pinyin-tool' command converts the Chinese characters to pinyin
+
+while read line; do 
+    echo $line; 
+done < zzlyrics001.lrc | pinyin-tool

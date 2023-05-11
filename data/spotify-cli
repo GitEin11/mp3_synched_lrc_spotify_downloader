@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# gets data for currently playing/paused song
+spotify status
+spotify status -vv

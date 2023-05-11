@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Set variables
+artist=`cat ./data/artist`
+album=`cat ./data/album`
+title=`cat ./data/title`
+
+# Move lyrics files to Music directory
+mv zzlyrics000.lrc ./Music/"$artist"/"$album"/"${title} - orig.lrc"
+mv zzlyrics002.lrc ./Music/"$artist"/"$album"/"${title}.lrc" #translated version
+
+# Remove unnecessary files
+rm gmon.out
+rm .gitignore
+rm ./*.txt
+rm -r ./downloads
+rm zzlyrics000.lrc
+rm zzlyrics001.lrc
+rm ./Music/"$artist"/"$album"/.mp3
+rm ./Music/"$artist"/"$album"/.lrc
+rm ./Music/"$artist"/"$album"/ - orig.lrc
+
+# Check if error exist in lyrics file, if it does delete it
+if grep -q "No such file or directory" ./Music/"$artist"/"$album"/"${title}.lrc"; then
+    rm ./Music/"$artist"/"$album"/"${title}.lrc"
+fi
+
+# Clear the screen
+clear

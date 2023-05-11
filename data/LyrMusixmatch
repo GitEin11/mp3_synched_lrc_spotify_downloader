@@ -1,0 +1,35 @@
+#!/bin/bash
+
+token="YOUR TOKEN HERE"
+
+clear
+
+# Remove all files in the ./data/lyrics/ directory
+rm ./data/lyrics/*
+
+artist=`cat ./data/artist`
+title=`cat ./data/title`
+# removes comma (mxlrc.py query format is artist seperated by comma then title ("artist, title")
+# to avoid error removes comma for each artist/title)
+artist2="${artist//,}"
+title2="${title//,}"
+
+# Create a query file with the artist(s) and song title
+# it's important that query is read from a file rather than directly put it, spaces will give undesirable results (treat search as different songs when query is directly fed to mxlrc.py)
+echo "$artist2, $title2" > ./data/query
+python ./data/mxlrc.py --song ./data/query --token $token
+mv ./lyrics/*.lrc ./zzlyrics000.lrc
+rm -r ./lyrics
+
+# to ensure synched type of lyrics is the one that is downloaded, check for timestanp
+# line 7 is just arbritary number most probably timestamp for lyrics can be found here
+# in some case song length is included in the lyric file which have a timestamp value, this is the reason a specific line(7th) is being search to prevent downloadin unsynced lyrics
+sed -n '7,7p' ./zzlyrics000.lrc > ./data/time
+time="[0-5][0-9]:[0-5][0-9]\.[0-9]"
+
+# check if timestamp is present delete file if not found
+if grep -q "$time" ./data/time; then
+:
+else
+    rm ./zzlyrics000.lrc
+fi

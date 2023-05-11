@@ -1,0 +1,24 @@
+#!/bin/sh
+
+clear
+
+# Download lyrics using syrics, song must be in spotify process i.e. playing or paused(but not killed)
+syrics -u
+
+# Wait for the download to finish just to be sure.
+wait
+
+mv ./downloads/*.lrc ./zzlyrics000.lrc
+
+# to ensure synched type of lyrics is the one that is downloaded, check for timestanp
+# line 7 is just arbritary number most probably timestamp for lyrics can be found here
+# in some case song length is included in the lyric file which have a timestamp value, this is the reason a specific line(7th) is being search to prevent downloading unsynced lyrics
+sed -n '7,7p' ./zzlyrics000.lrc > ./data/time
+time="[0-5][0-9]:[0-5][0-9]\.[0-9]"
+
+# check if timestamp is present delete file if not found
+if grep -q "$time" ./data/time; then
+:
+else 
+    rm ./zzlyrics000.lrc 
+fi

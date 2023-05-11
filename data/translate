@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Run the script to convert Korean characters to Romaja
+./data/ko2romaja
+
+
+# Detect the language of the lyrics using the langid library and save the result in the "language" file
+# simplified Chinese and Japanese shared some character, it's important to distinguish between the two
+language=`langid < zzlyrics001.lrc`
+# If the language is detected as Chinese, run the script to convert Chinese characters to Pinyin
+if [[ $language =~ zh ]]; then
+    script -c ./data/zh2pinyin --force zzlyrics002.lrc
+    
+    # some cleanups (add list if neccesarry)
+    sed -i 's/ ]/]/g' zzlyrics002.lrc
+    sed -i 's/] /]/g' zzlyrics002.lrc
+    sed -i 's/\([0-9]\) : /\1:/g' zzlyrics002.lrc
+    sed -i '1d;$d' zzlyrics002.lrc
+    sed -i 's/ \[/[/g' zzlyrics002.lrc
+    sed -i 's/\[ /[/g' zzlyrics002.lrc
+    sed -i 's/\r//g' zzlyrics002.lrc;
+else
+# If the language is detected as Japanese, run the script to convert Japanese characters to Romaji
+  if [[ $language =~ ja ]]; then
+      script -c ./data/ja2romaji --force zzlyrics002.lrc
+      
+      # some cleanups (add list if neccesarry)
+      sed -i 's/ ]/]/g' zzlyrics002.lrc
+      sed -i 's/] /]/g' zzlyrics002.lrc
+      sed -i 's/( /(/g' zzlyrics002.lrc
+      sed -i 's/ )/)/g' zzlyrics002.lrc
+      sed -i 's/: /:/g' zzlyrics002.lrc
+      sed -i 's/ :/:/g' zzlyrics002.lrc
+      sed -i 's/\. \([0-9]\)/.\1/g' zzlyrics002.lrc
+      sed -i 's/ - /-/g' zzlyrics002.lrc
+      sed -i 's/ ??/]♪/g' zzlyrics002.lrc
+      sed -i '1d' zzlyrics002.lrc
+      sed -i '$d' zzlyrics002.lrc
+      sed -i '$d' zzlyrics002.lrc
+      sed -i "s/' /'/g" zzlyrics002.lrc
+  else
+      mv ./zzlyrics001.lrc ./zzlyrics002.lrc
+  fi
+fi
