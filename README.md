@@ -7,7 +7,7 @@ Prereq list.
 
 2. pip3 install --upgrade spotify-cli # https://github.com/ledesmablt/spotify-cli to get datas from spotify thru cli also take note of CLIENT ID and SECRET explained in there website
 
-3. pip install spotdl spot #from https://github.com/spotDL/spotify-downloader for downloading mp3
+3. pip install spotdl #from https://github.com/spotDL/spotify-downloader for downloading mp3
 
 4. add lines for your ~/.bashrc to be able to change terminal title thru cli, see attached .bashrc file
 
