@@ -2,7 +2,7 @@
 
 Prereq list.
 
-1. spotify client but not the snap version see https://www.spotify.com/us/download/linux/
+1. install spotify client but not the snap version see https://www.spotify.com/us/download/linux/
 
 2. ```pip3 install --upgrade spotify-cli```
 
