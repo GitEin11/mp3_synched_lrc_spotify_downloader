@@ -44,5 +44,5 @@ downloads lyrics from Netease
 
 14. make sure all the scripts are executable
 
-Now all you need to do is play a song in your spotify and run ./Spotify downloader
+Now all you need to do is play a song in your spotify and run in terminal ./Spotify downloader
 all other description is commented in their respective script.
