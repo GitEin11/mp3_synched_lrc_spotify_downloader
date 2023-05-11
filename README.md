@@ -47,5 +47,9 @@ Now all you need to do is play a song in your spotify and run in terminal ./Spot
 all other description is commented in their respective script.
 
 
-https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/0b465767-7446-4566-9485-6f0cee2bda02
+
+https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/33ecb6fa-0ac2-491b-a4c6-76a0d6f3d52e
+
+
+
 
