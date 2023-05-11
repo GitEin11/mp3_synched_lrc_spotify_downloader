@@ -1,5 +1,5 @@
 # script for spotify mp3 and synched lyrics downloader (w/ Jap to Romaji, Kor to Romaja and Chi to Pinyin translation)
-Spotify mp3 and synched lyrics (with jap to romaji, kor to romaja, chi to pinyin translation) downloader
+script for spotify mp3 and synched lyrics downloader (w/ Jap to Romaji, Kor to Romaja and Chi to Pinyin translation)
 
 Prereq list.
 
