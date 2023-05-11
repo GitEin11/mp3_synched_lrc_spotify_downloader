@@ -50,8 +50,6 @@ Also put a client ID/Secret on "./Spotify downloader" for spotdl
 
 make sure all the scripts are executable
 
-Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
-all other description is commented in their respective script.
-
+# Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
 
 https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/33ecb6fa-0ac2-491b-a4c6-76a0d6f3d52e
