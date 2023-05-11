@@ -4,7 +4,7 @@ Requirements:
 pip3 install --upgrade spotify-cli
 pip install spotdl
 sudo apt install util-linux
-pip3 install py3langid
+pip install langid
 pip install cutlet
 cargo install pinyin-tool
 pip3 install syrics
@@ -49,6 +49,10 @@ $ spotify auth login --client-id XXXXX --client-secret YYYYY
 Also put a client ID/Secret on "./Spotify downloader" for spotdl
 
 make sure all the scripts are executable
+
+sources:
+https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-downloader https://github.com/saffsd/langid.py 
+
 
 # Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
 
