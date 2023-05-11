@@ -31,7 +31,9 @@ make install
 
 add lines in your ~/.bashrc to be able to change terminal title thru cli, see attached "./add to .bashrc" file
 
+
 for setup spotify-cli from https://github.com/ledesmablt/spotify-cli
+
 You may also pass [your own Spotify application](https://developer.spotify.com/dashboard/applications)'s
 client ID and secret if you want to track your usage or avoid
 API rate limiting issues (all users using the default client settings share the same rate limits).
@@ -42,10 +44,9 @@ is listed as a Redirect URI in your application.
 $ spotify auth login --client-id XXXXX --client-secret YYYYY
 ```
       
-Also put your a client ID/Secret on "./Spotify downloader" for spotdl
+Also put a client ID/Secret on "./Spotify downloader" for spotdl
 
 make sure all the scripts are executable
-
 
 Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
 all other description is commented in their respective script.
