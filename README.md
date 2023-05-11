@@ -32,7 +32,9 @@ make install
 add lines in your ~/.bashrc to be able to change terminal title thru cli, see attached "./add to .bashrc" file
 
 
-for setup spotify-cli from https://github.com/ledesmablt/spotify-cli
+for the setup of spotify-cli
+
+from https://github.com/ledesmablt/spotify-cli
 
 You may also pass [your own Spotify application](https://developer.spotify.com/dashboard/applications)'s
 client ID and secret if you want to track your usage or avoid
