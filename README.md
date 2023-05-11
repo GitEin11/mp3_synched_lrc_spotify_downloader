@@ -1,4 +1,4 @@
-# Play a song from spotify, run the script, mp3 is downloaded, lrc is downloaded and translated (JAP to Romaji, KOR to Romaja, CHI to Pinyin)
+# Play a song from spotify, run the script
 
 Prereq list.
 
