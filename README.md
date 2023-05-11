@@ -1,3 +1,5 @@
+# Downloads mp3 and synched lyrics (with jap to romaji, kor to romaja, chi to pinyin translation) from currently playing song on spotify client
+
 Requirements:
 
 ```
