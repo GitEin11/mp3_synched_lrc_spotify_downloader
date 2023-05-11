@@ -4,7 +4,8 @@ Prereq list.
 
 1. install spotify client but not the snap version see https://www.spotify.com/us/download/linux/
 
-2. ```
+2. 
+```
 pip3 install --upgrade spotify-cli #from https://github.com/ledesmablt/spotify-cli to get datas from spotify thru cli also take note of CLIENT ID and SECRET explained in there website
 ```
 
