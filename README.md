@@ -51,7 +51,7 @@ Also put a client ID/Secret on "./Spotify downloader" for spotdl
 make sure all the scripts are executable
 
 sources:
-https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-downloader https://github.com/saffsd/langid.py 
+https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-downloader https://github.com/saffsd/langid.py https://github.com/polm/cutlet https://github.com/briankung/pinyin-tool https://github.com/victorteokw/kroman https://github.com/akashrchandran/syrics
 
 
 # Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
