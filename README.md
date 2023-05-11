@@ -54,6 +54,6 @@ sources:
 https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-downloader https://github.com/saffsd/langid.py https://github.com/polm/cutlet https://github.com/briankung/pinyin-tool https://github.com/victorteokw/kroman https://github.com/akashrchandran/syrics
 
 
-# Now all you need to do is play a song in your spotify client and run in terminal ./Spotify downloader
+# Now all you need to do is play a song in your spotify client and run ./Spotify downloader in terminal
 
 https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/33ecb6fa-0ac2-491b-a4c6-76a0d6f3d52e
