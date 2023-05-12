@@ -74,6 +74,3 @@ https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-down
 ![2](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/fd4d0773-a58c-46dc-b6df-26a0516fa9fa)
 ![3](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/aabf2eb7-6481-49d0-8f50-203b0230e043)
 ![4](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/0e55fcd3-a9ce-42f1-987b-52ed93b4e363)
-
-
-https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/33ecb6fa-0ac2-491b-a4c6-76a0d6f3d52e
