@@ -17,7 +17,7 @@ rm -r ./downloads
 rm zzlyrics000.lrc
 rm zzlyrics001.lrc
 
-# this files are generated when an error (no name occur)
+# this files are generated when an error occur (no name)
 mp3="./Music/"$artist"/"$album"/.mp3"
 rm "$mp3"
 lrc="./Music/"$artist"/"$album"/.lrc"
