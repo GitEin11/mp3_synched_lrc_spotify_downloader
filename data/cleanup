@@ -16,9 +16,14 @@ rm ./*.txt
 rm -r ./downloads
 rm zzlyrics000.lrc
 rm zzlyrics001.lrc
-rm ./Music/"$artist"/"$album"/.mp3
-rm ./Music/"$artist"/"$album"/.lrc
-rm ./Music/"$artist"/"$album"/ - orig.lrc
+
+# this files are generated when an error (no name occur)
+mp3="./Music/"$artist"/"$album"/.mp3"
+rm "$mp3"
+lrc="./Music/"$artist"/"$album"/.lrc"
+rm "$lrc"
+orig="./Music/"$artist"/"$album"/ - orig.lrc"
+rm "$orig"
 
 # Check if error exist in lyrics file, if it does delete it
 if grep -q "No such file or directory" ./Music/"$artist"/"$album"/"${title}.lrc"; then
