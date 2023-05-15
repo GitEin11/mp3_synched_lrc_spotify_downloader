@@ -82,3 +82,50 @@ Now all you need to do is play a song in your spotify client and run ./Spotify d
 ![4](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/0e55fcd3-a9ce-42f1-987b-52ed93b4e363)
 
 https://github.com/GitEin11/script-for-spotify-mp3-and-synched-lyrics-downloader/assets/84138811/33ecb6fa-0ac2-491b-a4c6-76a0d6f3d52e
+
+
+
+*If the language is not included here, you can ask chatGPT or any language model of your choice to do the romanization
+
+example: this song from BABYMETAL PA PA YA!! has thai language in it
+```
+me:
+romanized this
+[02:26.17]Rap Rap หมอลำ Rock Rock
+[02:27.46]สุดแต่ชะตาจะมาเคาะ ก๊อก ก๊อก
+[02:28.92]เพราะชีวิตเหมือน Chocolate Box Box
+[02:30.49]มีผสมกันเหมือน Papaya Pok Pok
+[02:31.93]โดน Knock Knock Knock ล้มๆลุกๆ
+[02:33.22]โขลกๆความสุขไปกับทุกข์ๆๆ
+[02:34.87]มะละกอโดนทุบๆๆ
+[02:36.33]ถึงจะแซ่บ ถึงจะนัว ถึงจะกรอบกรุ้บๆ
+[02:38.03]ซิ่งรถตุ๊กๆ อย่าง Thai Rider
+[02:39.64]Hot and Spicy เพราะนี่ Summer
+[02:41.14]I was Lightning Before the Thunder
+[02:42.69]ส้มตำ ปลาดิบ เฮามาม่วนกันเด้อ
+[02:44.19]Baby Girls, ฮานาก้า
+[02:45.69]สั่งบิกินี่มาจาก Lazada
+[02:47.26]Jumpin' in the Pool La La La
+[02:48.76]แสงแดดแผดเผาเรามา Papaya
+```
+```
+ChatGPT:
+"[02:26.17]Rap Rap mor lam Rock Rock
+[02:27.46]sut tae cha dta ja ma kao kork kork
+[02:28.92]por chii wit meuuan Chocolate Box Box
+[02:30.49]mii pha som gan meuuan Papaya Pok Pok
+[02:31.93]dohn Knock Knock Knock lom lom luk luk
+[02:33.22]khlo khlo khwam suk bpai kap thuk-thuk
+[02:34.87]ma la kor dohn thub thub thub
+[02:36.33]teung ja saeb, teung ja nua, teung ja krop kroob kroob
+[02:38.03]sing roht dtook dtook yahng Thai Rider
+[02:39.64]Hot and Spicy por nee Summer
+[02:41.14]I was Lightning Before the Thunder
+[02:42.69]som tam, pla dip, hao ma muan gan der
+[02:44.19]Baby Girls, Hanaka
+[02:45.69]sang bignii mah jak Lazada
+[02:47.26]Jumpin' in the Pool La La La
+[02:48.76]saeng daet paet pao rao mah Papaya"
+
+This is the romanized version of the provided Thai lyrics.
+```
