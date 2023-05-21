@@ -31,9 +31,6 @@ cd kroman
 make install
 ```
 
-add lines in your ~/.bashrc to be able to change terminal title thru cli, see attached "./add to .bashrc" file
-
-
 for the setup of spotify-cli
 
 from https://github.com/ledesmablt/spotify-cli
