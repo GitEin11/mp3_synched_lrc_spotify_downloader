@@ -5,7 +5,7 @@ Requirements:
 ```
 pip3 install --upgrade spotify-cli
 pip install spotdl
-sudo apt install util-linux
+sudo apt install util-linux cargo
 pip install langid
 pip install cutlet
 cargo install pinyin-tool
@@ -21,7 +21,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 ```
 install the Spotify client:
 ```
-sudo apt-get update && sudo apt-get install spotify-client
+sudo apt update && sudo apt install spotify-client
 ```
 
 build and install kroman from https://github.com/victorteokw/kroman
@@ -66,6 +66,7 @@ https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-down
 
 
 Now all you need to do is play a song in your spotify client and run ./Spotify downloader in terminal
+note: spotify command is replaced by spotify-cli, to launch the client use /usr/bin/spotify as your command
 
 ![1](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/8338ab89-bcd3-496d-970f-5fde60794dc9)
 
