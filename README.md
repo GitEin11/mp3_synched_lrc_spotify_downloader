@@ -66,6 +66,7 @@ https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-down
 
 
 Now all you need to do is play a song in your spotify client and run ./Spotify downloader in terminal
+
 note: spotify command is replaced by spotify-cli, to launch the client use /usr/bin/spotify as your command
 
 ![1](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/8338ab89-bcd3-496d-970f-5fde60794dc9)
