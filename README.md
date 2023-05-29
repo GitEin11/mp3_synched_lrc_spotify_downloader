@@ -28,7 +28,7 @@ build and install kroman from https://github.com/victorteokw/kroman
 ```
 git clone https://github.com/victorteokw/kroman.git
 cd kroman
-make install
+sudo make install
 ```
 
 for the setup of spotify-cli
