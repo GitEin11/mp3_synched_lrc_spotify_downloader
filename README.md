@@ -8,6 +8,7 @@ pip install spotdl
 sudo apt install util-linux cargo
 pip install langid
 pip install cutlet
+pip install unidic-lite
 cargo install pinyin-tool
 pip3 install syrics
 ```
