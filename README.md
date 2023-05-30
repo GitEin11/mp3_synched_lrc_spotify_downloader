@@ -3,14 +3,14 @@ Downloads mp3 and synched lyrics (with jap to romaji, kor to romaja, chi to piny
 Requirements:
 
 ```
-pip3 install --upgrade spotify-cli
-pip install spotdl
-sudo apt install util-linux cargo
-pip install langid
-pip install cutlet
-pip install unidic-lite
-cargo install pinyin-tool
-pip3 install syrics
+pip3 install --upgrade spotify-cli        # control spotify thru cli
+pip install spotdl                        # downloads mp3
+sudo apt install util-linux cargo         # for typescript and installation of pinyin-tool
+pip install langid                        # for language detection
+pip install cutlet                        # Jap to Romaji
+pip install unidic-lite                   # Jap dictionary
+cargo install pinyin-tool                 # Chi to Pinyin
+pip3 install syrics                       # downloads lyrics from spotify
 ```
 Install spotify client but not the snap version
 https://www.spotify.com/us/download/linux/
@@ -27,6 +27,7 @@ sudo apt update && sudo apt install spotify-client
 
 build and install kroman from https://github.com/victorteokw/kroman
 ```
+# Kor to Romaja
 git clone https://github.com/victorteokw/kroman.git
 cd kroman
 sudo make install
