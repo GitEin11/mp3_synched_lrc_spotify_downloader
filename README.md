@@ -1,5 +1,7 @@
 Downloads mp3 and synched lyrics (with jap to romaji, kor to romaja, chi to pinyin translation) from currently playing song on spotify client
 
+>I'm using ubuntu 20.04, doesnt work on 22.04 I'm having issue with cli module of spotify-cli
+
 Requirements:
 
 ```
@@ -73,7 +75,9 @@ https://github.com/ledesmablt/spotify-cli https://github.com/spotDL/spotify-down
 
 Now all you need to do is play a song in your spotify client and run ./Spotify downloader in terminal
 
-note: spotify command is replaced by spotify-cli, to launch the client use /usr/bin/spotify as your command
+~note: spotify command is replaced by spotify-cli, to launch the client use /usr/bin/spotify as your command~
+
+update spotify cli bin is now located @ ~/.local/bin/spotify
 
 ![1](https://github.com/GitEin11/mp3-synched-lrc-spotify-downloader/assets/84138811/8338ab89-bcd3-496d-970f-5fde60794dc9)
 
