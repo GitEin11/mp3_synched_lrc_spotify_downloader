@@ -1,5 +1,5 @@
 #!/bin/bash
 
 # gets data for currently playing/paused song
-~/.local/bin/spotify status
-~/.local/bin/spotify status -vv
+spotify status
+spotify status -vv
