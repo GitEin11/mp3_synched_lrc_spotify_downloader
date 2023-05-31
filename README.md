@@ -12,7 +12,7 @@ pip install cutlet                        # Jap to Romaji
 pip install unidic-lite                   # Jap dictionary
 pip3 install syrics                       # downloads lyrics from spotify
 ```
->you need to configure syrics sp_dc go from the original creator https://github.com/akashrchandran/syrics for instruction
+>you need to configure syrics sp_dc, go to the developers page https://github.com/akashrchandran/syrics for instruction
 >
 >after getting sp_dc you can configure it via cli, or just edit the file here ~/.config/syrics/config.json
 
