@@ -12,6 +12,8 @@ pip install cutlet                        # Jap to Romaji
 pip install unidic-lite                   # Jap dictionary
 pip3 install syrics                       # downloads lyrics from spotify
 ```
+you need to configure syrics sp_dc go from the original creator https://github.com/akashrchandran/syrics for instruction
+
 ```
 sudo apt install util-linux cargo         # for typescript and installation of pinyin-tool
 cargo install pinyin-tool                 # Chi to Pinyin
