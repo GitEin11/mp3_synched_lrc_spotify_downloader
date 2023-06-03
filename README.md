@@ -70,6 +70,7 @@ musixmatch
 ```
 and look for the "userToken":"TOKEN HERE"
 put the token into ./data/LyrMusixmatch
+you can uninstall Musixmatch afterwards
 
 make sure all the scripts are executable
 
