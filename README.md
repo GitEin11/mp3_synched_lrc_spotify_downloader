@@ -45,21 +45,21 @@ sudo make install
 
 for the setup of spotify-cli
 
-from https://github.com/ledesmablt/spotify-cli
+visit developer's page https://github.com/ledesmablt/spotify-cli
 
-You may also pass [your own Spotify application](https://developer.spotify.com/dashboard/applications)'s
-client ID and secret if you want to track your usage or avoid
-API rate limiting issues (all users using the default client settings share the same rate limits).
-
-When doing so, please ensure that [this URL](https://asia-east2-spotify-cli-283006.cloudfunctions.net/auth-redirect)
-is listed as a Redirect URI in your application.
+>You may also pass [your own Spotify application](https://developer.spotify.com/dashboard/applications)'s
+>client ID and secret if you want to track your usage or avoid
+>API rate limiting issues (all users using the default client settings share the same rate limits).
+>
+>When doing so, please ensure that [this URL](https://asia-east2-spotify-cli-283006.cloudfunctions.net/auth-redirect)
+>is listed as a Redirect URI in your application.
 ```
 $ spotify auth login --client-id XXXXX --client-secret YYYYY
 ```
       
-Also put a client ID/Secret on "./Spotify downloader" for spotdl
+Also put a client ID/Secret on "./Spotify downloader" to be used by spotdl
 
-You must also get a Musixmatch token, no need to register
+Get a Musixmatch token, no need to register
 to do that install Musixmatch
 ```
 sudo snap install musixmatch
