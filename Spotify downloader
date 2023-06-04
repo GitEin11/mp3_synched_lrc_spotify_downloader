@@ -53,6 +53,8 @@ else
 fi
 # Replace the forbidden characters with a space, to prevent breaking some script
 title=$(echo "$title" | sed "s/[$forbidden_chars]/ /g")
+# Replace single straight quote ' with single closing quote ’ to prevent breaking gdbus call
+title="${title//\'/’}"
 echo $title > ./data/title
 
 # removes new line and carriage return, *sometimes hidden in text viewer, breaks some script if not remove
@@ -65,6 +67,7 @@ title=`cat ./data/title`
 artist=`awk -F"Artist" '{print (NF>1)? $NF : ""}' ./data/stat`
 artist=$(echo "$artist" | sed "s/[$forbidden_chars]/ /g")
 echo $artist > ./data/artist
+artist="${artist//\'/’}"
 tr -d '\n\r' < ./data/artist > temp_file && mv temp_file ./data/artist
 artist=`cat ./data/artist`
 
@@ -72,6 +75,7 @@ artist=`cat ./data/artist`
 # Extract the album name of the currently playing song from the "stat" file and save it to a file "album"
 album=`awk -F"Album" '{print (NF>1)? $NF : ""}' ./data/stat`
 album=$(echo "$album" | sed "s/[$forbidden_chars]/ /g")
+album="${album//\'/’}"
 echo $album > ./data/album
 tr -d '\n\r' < ./data/album > temp_file && mv temp_file ./data/album
 album=`cat ./data/album`
