@@ -1,4 +1,4 @@
-Downloads mp3 and synched lyrics (with jap to romaji, kor to romaja, chi to pinyin translation) from currently playing song on spotify client
+This program downloads the mp3 file and the synchronized lyrics of the song that is currently playing on your Spotify client. It also translates the lyrics from Japanese to Romaji, Korean to Romaja, and Chinese to Pinyin.
 
 >I'm using ubuntu 20.04, doesnt work on 22.04 I'm having issue with cli module of spotify-cli
 
