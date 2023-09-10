@@ -56,12 +56,11 @@ title=$(echo "$title" | sed "s/[$forbidden_chars]/ /g")
 # Replace single straight quote ' with single closing quote ’ to prevent breaking gdbus call
 title="${title//\'/’}"
 echo $title > ./data/title
-
 # removes new line and carriage return, *sometimes hidden in text viewer, breaks some script if not remove
 tr -d '\n\r' < ./data/title > temp_file && mv temp_file ./data/title
-
+# Remove trailing space to prevent error when destination is NTFS
+sed -i 's/ [ \\t]*$//' ./data/title
 title=`cat ./data/title`
-
 
 # Extract the artist of the currently playing song from the "stat" file and save it to a file "artist"
 artist=`awk -F"Artist" '{print (NF>1)? $NF : ""}' ./data/stat`
@@ -69,6 +68,7 @@ artist=$(echo "$artist" | sed "s/[$forbidden_chars]/ /g")
 echo $artist > ./data/artist
 artist="${artist//\'/’}"
 tr -d '\n\r' < ./data/artist > temp_file && mv temp_file ./data/artist
+sed -i 's/ [ \\t]*$//' ./data/artist
 artist=`cat ./data/artist`
 
 
@@ -78,10 +78,12 @@ album=$(echo "$album" | sed "s/[$forbidden_chars]/ /g")
 album="${album//\'/’}"
 echo $album > ./data/album
 tr -d '\n\r' < ./data/album > temp_file && mv temp_file ./data/album
+sed -i 's/ [ \\t]*$//' ./data/album
 album=`cat ./data/album`
 
 
 FILE="$PWD"/Music/"$artist"/"$album"/"${title}.mp3"
+
 
 # Check if the file already exists, and if not, download mp3 using the "spotdl" command
 if [ -f "$FILE" ]; then
@@ -90,9 +92,9 @@ else
    spotdl --client-id $clientID --client-secret $clientST $url
 fi
 
+
 # Create directories for the artist and album if they don't already exist,
 # and move the downloaded mp3 file to the correct location
-
 mkdir -p ./Music/"$artist"/"$album"
 mv ./*.mp3 ./Music/"$artist"/"$album"/"${title}.mp3"
 
@@ -101,10 +103,12 @@ mv ./*.mp3 ./Music/"$artist"/"$album"/"${title}.mp3"
 # rearrange this acording to your priority
 # not all songs have available synched lyrics
 # if your wondering why lyrics translated and original that have the same content but with different file size, one is encoded with UTF-16 and the other is UTF-8
-
 FILE2="$PWD"/Music/"$artist"/"$album"/"${title}.lrc"
 
+
 echo -ne '\033]0;Spotify downloader\007'
+
+
 
 ##############################################################################################
 # Spotify
@@ -147,6 +151,7 @@ else
 fi
 
 ##############################################################################################
+
 
 
 # after process
